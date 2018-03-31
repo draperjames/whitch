@@ -3,7 +3,17 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
+import os
+from setuptools import setup
+from setuptools import find_packages
+from setuptools.command.install import install as _install
+from setuptools.command.develop import develop as _develop
+
+here = os.getcwd()
+
+with open(os.path.join(here, 'witch', '__version__')) as f:
+    __version__ = f.read().strip()
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -35,7 +45,10 @@ setup(
     description="Platform independent which",
     entry_points={
         'console_scripts': [
-            'witch=witch.cli:main',
+            'which=witch.cli:main',
+            'witch=which.cli:main',
+            'where=witch.cli:main',
+            'whereis=witch.cli:main',
         ],
     },
     install_requires=requirements,
@@ -45,10 +58,11 @@ setup(
     keywords='witch',
     name='witch',
     packages=find_packages(include=['witch']),
+    package_data = {'witch': ['__version__']},
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/draperjames/witch',
-    version='0.0.1',
+    version=__version__,
     zip_safe=False,
 )

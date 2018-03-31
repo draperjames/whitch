@@ -1,18 +1,32 @@
 # -*- coding: utf-8 -*-
 
-"""Console script for witch."""
+"""Console script for which"""
+
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+
+import os
 import sys
-import click
+import argparse
+
+sys.path.insert(0, os.getcwd())
+
+from .witch import witch
+
+# Commandline interface
+parser = argparse.ArgumentParser()
 
 
-@click.command()
-def main(args=None):
-    """Console script for witch."""
-    click.echo("Replace this message by putting your code into "
-               "witch.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
-    return 0
+parser.add_argument("command")
+
+args = parser.parse_args()
+
+kwargs = vars(args)
 
 
-if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+def main():
+    return witch(kwargs["command"])
