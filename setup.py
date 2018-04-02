@@ -20,7 +20,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['future','Click>=6.0',]
+requirements = ['future', 'Click>=6.0',]
 
 setup_requirements = ['future']
 
@@ -63,6 +63,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/draperjames/witch',
-    version=__version__,
+    version="0.0.1",
     zip_safe=False,
 )
