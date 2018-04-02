@@ -4,7 +4,7 @@
 
 __author__ = """James Draper"""
 __email__ = 'draperjames@github.io'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import os
 
