@@ -16,7 +16,7 @@ def witch(app):
 
     Returns
     -------
-    result : list
+    result : str
         A list of locations where applications is installed.
 
     Useage
@@ -24,10 +24,10 @@ def witch(app):
     >>>where_is_executable('javac')
     'C:\\Program Files\\Java\\jdk1.8.0_162\\bin\\javac.exe'
     """
-    result = []
+    result = ""
 
     command = 'where'
-    if os.name != "nt":# Windows
+    if os.name != "nt":  # Windows
         command = 'which'
 
     try:
@@ -39,4 +39,6 @@ def witch(app):
 
     result = result.decode().splitlines()
     result = [line for line in result if len(line)]
+    result = "\n".join(result)
+
     return result

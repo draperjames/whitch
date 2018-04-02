@@ -6,14 +6,13 @@
 import os
 from setuptools import setup
 from setuptools import find_packages
-from setuptools.command.install import install as _install
-from setuptools.command.develop import develop as _develop
+# from setuptools.command.install import install as _install
+# from setuptools.command.develop import develop as _develop
 
 here = os.getcwd()
 
 with open(os.path.join(here, 'witch', '__version__')) as f:
     __version__ = f.read().strip()
-
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -21,15 +20,16 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['future','Click>=6.0',]
 
-setup_requirements = [ ]
+setup_requirements = ['future']
 
 test_requirements = [ ]
 
+
 setup(
     author="James Draper",
-    author_email='draperjames@github.io',
+    author_email='james.draper@protonmail.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -47,8 +47,8 @@ setup(
         'console_scripts': [
             'which=witch.cli:main',
             'witch=which.cli:main',
-            'where=witch.cli:main',
-            'whereis=witch.cli:main',
+            # 'where=witch.cli:main',
+            # 'whereis=witch.cli:main',
         ],
     },
     install_requires=requirements,
