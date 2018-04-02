@@ -9,10 +9,10 @@ from setuptools import find_packages
 # from setuptools.command.install import install as _install
 # from setuptools.command.develop import develop as _develop
 
-here = os.getcwd()
-
-with open(os.path.join(here, 'witch', '__version__')) as f:
-    __version__ = f.read().strip()
+# here = os.getcwd()
+#
+# with open(os.path.join(here, 'witch', '__version__')) as f:
+#     __version__ = f.read().strip()
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -58,7 +58,7 @@ setup(
     keywords='witch',
     name='witch',
     packages=find_packages(include=['witch']),
-    package_data = {'witch': ['__version__']},
+    # package_data = {'witch': ['__version__']},
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
